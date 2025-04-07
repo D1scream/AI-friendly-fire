@@ -6,8 +6,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
-from turtle import pd
-import pandas
+import pandas as pd
 import pickle
 
 from model import build_model
