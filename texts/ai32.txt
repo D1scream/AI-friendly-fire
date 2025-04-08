@@ -1,0 +1,10 @@
+An RNN (Recurrent Neural Network) is a type of artificial neural network designed to handle sequential data. Unlike traditional feedforward neural networks, RNNs have connections that loop back on themselves, allowing them to maintain a "memory" of previous inputs in the sequence. This makes RNNs particularly well-suited for tasks where the order and context of data matter, such as time series forecasting, natural language processing, and speech recognition.
+Key Characteristics:
+    Sequential Processing: RNNs process data one step at a time while maintaining information from previous steps. This allows them to make predictions based on the context of earlier elements in the sequence.
+    Recurrent Connections: The network has feedback loops, where the output of a neuron is fed back into itself, creating an internal state or memory that gets updated over time.
+    Memory: The RNN can "remember" past information, which helps it predict future elements in a sequence based on prior context.
+Applications of RNNs:
+    Natural Language Processing (NLP): Tasks like language translation, text generation, and sentiment analysis.
+    Speech Recognition: Converting spoken words into text.
+    Time Series Prediction: Forecasting stock prices or weather patterns.
+Despite their powerful capabilities, RNNs have limitations, such as difficulty in learning long-term dependencies (which is addressed by more advanced architectures like LSTMs and GRUs).An RNN (Recurrent Neural Network) is a type of artificial neural network designed to handle sequential data. Unlike traditional feedforward neural networks, RNNs have connections that loop back on themselves, allowing them to maintain a "memory" of previous inputs in the sequence. This makes RNNs particularly well-suited for tasks where the order and context of data matter, such as time series forecasting, natural language processing, and speech recognition.
