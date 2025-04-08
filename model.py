@@ -9,18 +9,18 @@ maxlen = 500
 def build_model():
     model = Sequential()
 
-    model.add(layers.Embedding(max_features, 32))
+    model.add(layers.Embedding(max_features, output_dim=32, input_length=maxlen))
     
-    model.add(layers.Bidirectional(layers.LSTM(32)))
+    model.add(layers.Bidirectional(layers.LSTM(32, return_sequences=True)))
     model.add(layers.Dropout(0.25))
     
-    model.add(layers.Bidirectional(layers.LSTM(32)))
+    model.add(layers.Bidirectional(layers.LSTM(32, return_sequences=True)))
     model.add(layers.Dropout(0.25))
     
-    model.add(layers.Bidirectional(layers.LSTM(32)))
+    model.add(layers.Bidirectional(layers.LSTM(32, return_sequences=True)))
     model.add(layers.Dropout(0.25))
     
-    model.add(layers.Bidirectional(layers.LSTM(32)))
+    model.add(layers.Bidirectional(layers.LSTM(32, return_sequences=True)))
     model.add(layers.Dropout(0.25))
     
     model.add(layers.Bidirectional(layers.LSTM(32)))
@@ -30,7 +30,7 @@ def build_model():
     model.add(layers.Dense(1, activation='sigmoid'))
     
     model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc'])
-    model.summary()
+    
     
     return model
 

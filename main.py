@@ -27,25 +27,25 @@ x_train, x_test, y_train, y_test = train_test_split(data['text'], data['generate
 print("Train-test divided")
 
 if os.path.exists(tokenizer_path):
-    print("Loading tokenizer from file...")
+    print("Loading tokenizer from file")
     with open(tokenizer_path, 'rb') as f:
         tokenizer = pickle.load(f)
 else:
-    print("Training tokenizer...")
+    print("Training tokenizer")
     tokenizer = Tokenizer(num_words=max_features)
     tokenizer.fit_on_texts(x_train)
     with open(tokenizer_path, 'wb') as f:
         pickle.dump(tokenizer, f)
-    print("Tokenizer saved!")
+    print("Tokenizer saved")
 
 if os.path.exists(train_data_path) and os.path.exists(test_data_path):
-    print("Loading preprocessed data from file...")
+    print("Loading preprocessed data from file")
     with open(train_data_path, 'rb') as f:
         x_train_pad, y_train = pickle.load(f)
     with open(test_data_path, 'rb') as f:
         x_test_pad, y_test = pickle.load(f)
 else:
-    print("Vectorizing and padding data...")
+    print("Vectorizing and padding data")
     x_train_seq = tokenizer.texts_to_sequences(x_train)
     x_test_seq = tokenizer.texts_to_sequences(x_test)
 
@@ -56,7 +56,7 @@ else:
         pickle.dump((x_train_pad, y_train), f)
     with open(test_data_path, 'wb') as f:
         pickle.dump((x_test_pad, y_test), f)
-    print("Preprocessed data saved!")
+    print("Preprocessed data saved")
 
 print("Data prepared.")
 
@@ -73,16 +73,15 @@ callbacks = [
         min_lr=1e-6
     )]
 model = build_model()
-history = model.fit(x_train, y_train,
+history = model.fit(x_train_pad, y_train,
     epochs=10,
     batch_size=128,
     validation_split=0.2,
     callbacks=callbacks
     )
-model.fit()
 
 model = keras.models.load_model(model_path)
-
+model.summary()
  
 test_loss, test_acc = model.evaluate(x_test_pad, y_test)
 print(f"Test loss: {test_loss}")
