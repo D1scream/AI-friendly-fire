@@ -50,6 +50,6 @@ for i, text in enumerate(texts):
         color = GREEN  
     
     print(f"{color}{file_names[i]}: {preview_text}{RESET}")
-    print(f"{color}True Class: {true_class}{RESET}")
+    print(f"{color}Expected: {true_class}{RESET}")
     print(f"{color}Prediction: {prediction_class} (Score: {predictions[i][0]:.4f}){RESET}")
     print("-" * 50)
