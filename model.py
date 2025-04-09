@@ -26,11 +26,9 @@ def build_model():
     model.add(layers.Bidirectional(layers.LSTM(32)))
     model.add(layers.Dropout(0.25))
     
-    
     model.add(layers.Dense(1, activation='sigmoid'))
     
     model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc'])
-    
     
     return model
 
